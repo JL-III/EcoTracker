@@ -1,18 +1,25 @@
 package com.playtheatria.jliii.ecotracker.commands;
 
 import com.playtheatria.jliii.ecotracker.managers.EconomyTrackerManager;
+import com.playtheatria.jliii.generalutils.GeneralUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
+
+import java.io.IOException;
+import java.util.Properties;
 
 public class PlayerCommands implements CommandExecutor {
 
+    private final Plugin plugin;
     private final EconomyTrackerManager economyTrackerManager;
 
-    public PlayerCommands(EconomyTrackerManager economyTrackerManager) {
+    public PlayerCommands(Plugin plugin, EconomyTrackerManager economyTrackerManager) {
+        this.plugin = plugin;
         this.economyTrackerManager = economyTrackerManager;
     }
 
@@ -25,6 +32,11 @@ public class PlayerCommands implements CommandExecutor {
 
         if (!player.hasPermission("ecotracker.use")) {
             return true;
+        }
+
+        if (args[0].equalsIgnoreCase("version")) {
+            player.sendMessage(plugin.getName() + plugin.getDescription().getVersion());
+            player.sendMessage(GeneralUtils.getVersion());
         }
 
         if (args[0].equalsIgnoreCase("clear")) {

@@ -25,7 +25,7 @@ public final class EcoTracker extends JavaPlugin {
             return;
         }
         economyTrackerManager = new EconomyTrackerManager(this, customLogger, economy);
-        Objects.requireNonNull(Bukkit.getPluginCommand("ecotracker")).setExecutor(new PlayerCommands(economyTrackerManager));
+        Objects.requireNonNull(Bukkit.getPluginCommand("ecotracker")).setExecutor(new PlayerCommands(this, economyTrackerManager));
     }
 
     @Override
