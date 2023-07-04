@@ -1,0 +1,9 @@
+name: EcoTracker
+version: '${project.version}'
+main: com.playtheatria.jliii.ecotracker.EcoTracker
+api-version: 1.19
+commands:
+  ecotracker:
+    description: EcoTracker command
+    usage: /<command> [args]
+    aliases: [et]
