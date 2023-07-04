@@ -5,5 +5,5 @@ api-version: 1.19
 commands:
   ecotracker:
     description: EcoTracker command
-    usage: /<command> [args]
+    usage: /<command> start <time>, /<command> clear
     aliases: [et]
